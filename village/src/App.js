@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import { Route } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 
@@ -30,9 +30,13 @@ class App extends Component {
       <div className="App">
         {/* <SmurfForm />
         <Smurfs smurfs={this.state.smurfs} /> */}
-        <Route exact path="/smurf-form" component={SmurfForm} />
         <Route 
-          // exact 
+          exact 
+          path="/smurf-form" 
+          component={SmurfForm} 
+        />
+        <Route 
+          exact 
           path="/" 
           render={props => (
             <Smurfs 
