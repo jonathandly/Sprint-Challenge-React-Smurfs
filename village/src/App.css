@@ -1,3 +1,30 @@
+html {
+  background: lightskyblue;
+}
+
 .App {
   text-align: center;
+}
+
+nav {
+  margin: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  color: whitesmoke;
+}
+nav .active {
+  text-decoration: none;
+  font-size: 20px;
+  color: whitesmoke;
+}
+nav::before {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.Smurf {
+  color: lightcyan;
+}
+.Smurfs h1 {
+  color: darkblue;
 }

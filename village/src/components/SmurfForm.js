@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import axios from 'axios';
+// import { Link } from 'react-router-dom';
+
 class SmurfForm extends Component {
   constructor(props) {
     super(props);
@@ -13,12 +16,19 @@ class SmurfForm extends Component {
   addSmurf = event => {
     event.preventDefault();
     // add code to create the smurf using the api
-
-    this.setState({
-      name: '',
-      age: '',
-      height: ''
-    });
+    axios 
+      .post('http://localhost:3333/smurfs', this.state)
+      .then(res => {
+        this.props.updateSmurfs(this.state);
+      })
+      .catch(err => console.log(err));
+      
+      this.setState({
+        name: '',
+        age: '',
+        height: ''
+      });
+      this.props.history.push('/');
   }
 
   handleInputChange = e => {
@@ -28,6 +38,7 @@ class SmurfForm extends Component {
   render() {
     return (
       <div className="SmurfForm">
+      {/* <Link to="/">Smurfs</Link> */}
         <form onSubmit={this.addSmurf}>
           <input
             onChange={this.handleInputChange}
